@@ -1,28 +1,26 @@
 package com.Akaei.Store.BountyMarket.Models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
 
-@Entity
+
 @Table(name="products")
 public class Product {
     @Id
-    @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
+    @Column("pid")
     private Integer uid;
-    @Column(name = "username")
+    @Column("name")
     private String username;
-    @Column(name = "link")
+    @Column("link")
     private String link;
-    @Column(name = "price")
-    private double price;
+    @Column("price")
+    private String price;
 
     public Product(){
 
     }
-    public Product(String username, String link, double price) {
+    public Product(String username, String link, String price) {
         this.username = username;
         this.link = link;
         this.price = price;
@@ -40,7 +38,7 @@ public class Product {
         return link;
     }
 
-    public double getPrice(){
+    public String getPrice(){
         return price;
     }
 
@@ -52,7 +50,7 @@ public class Product {
         this.link = link;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(String price) {
         this.price = price;
     }   
 
