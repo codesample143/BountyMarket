@@ -1,5 +1,7 @@
 package com.Akaei.Store.BountyMarket.Models;
 
+import java.math.BigDecimal;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
@@ -15,12 +17,12 @@ public class Product {
     @Column("link")
     private String link;
     @Column("price")
-    private String price;
+    private BigDecimal price;
 
     public Product(){
 
     }
-    public Product(String username, String link, String price) {
+    public Product(String username, String link, BigDecimal price) {
         this.username = username;
         this.link = link;
         this.price = price;
@@ -38,7 +40,7 @@ public class Product {
         return link;
     }
 
-    public String getPrice(){
+    public BigDecimal getPrice(){
         return price;
     }
 
@@ -50,7 +52,7 @@ public class Product {
         this.link = link;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }   
 

@@ -1,22 +1,28 @@
 package com.Akaei.Store.BountyMarket.API;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import reactor.core.publisher.Flux;
 
 import com.Akaei.Store.BountyMarket.Models.Product;
-import com.Akaei.Store.BountyMarket.repo.ProductRepository;
+import com.Akaei.Store.BountyMarket.Services.ProductService;
 
+import reactor.core.publisher.Flux;
+
+/*\
+ * APIController.java
+ * This controller handles API requests for the Bounty Market application, containing business logic and modification.
+ */
 @RestController
 public class APIController {
-    private final ProductRepository repository;
+    private final ProductService service;
 
     @Autowired
-    public APIController(ProductRepository repository) {
-        this.repository = repository;
+    public APIController(ProductService service) {
+        this.service = service;
     }
 
     @GetMapping("/")
@@ -26,7 +32,7 @@ public class APIController {
 
     @GetMapping("/products")
     public Flux<Product> getAllProducts(){
-        return repository.findAll();
+        return service.getAllProducts();
     }
 }
 /*
