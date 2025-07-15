@@ -7,11 +7,15 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 
 import com.Akaei.Store.BountyMarket.Models.Product;
 import com.Akaei.Store.BountyMarket.Services.ProductService;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import reactor.core.publisher.Flux;
@@ -45,6 +49,12 @@ public class APIController {
             }
             return ResponseEntity.ok(list);
         });
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Mono<Product> createProduct(Product product){
+        return service.createProduct(product);
     }
 
     @DeleteMapping("/products/{id}")

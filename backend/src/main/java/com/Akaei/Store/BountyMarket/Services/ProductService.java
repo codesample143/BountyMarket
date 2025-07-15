@@ -18,7 +18,7 @@ public class ProductService {
     public ProductService(ProductRepository repository) {
         this.repository = repository;
     }
-    
+
     public Flux<Product> getAllProducts(){
         return repository.findAll();
     }
