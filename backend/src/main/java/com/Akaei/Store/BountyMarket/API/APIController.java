@@ -3,6 +3,7 @@ package com.Akaei.Store.BountyMarket.API;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,6 +20,7 @@ import reactor.core.publisher.Mono;
  * This controller handles API requests for the Bounty Market application, containing business logic and modification.
  */
 @RestController
+@CrossOrigin(origins = "http://localhost:5173")
 public class APIController {
     private final ProductService service;
 
