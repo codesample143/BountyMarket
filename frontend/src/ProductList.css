@@ -22,9 +22,170 @@
 
 .product-item:hover {
   background-color: #282828; /* darker background on hover */
-  color: #1db954;            /* Spotify green highlight */
+  color: #808080;            /* Spotify green highlight */
 }
 
 .product-list li {
   margin-bottom: 8px;
+}
+
+body, .bounty-root {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #181A20 0%, #23263A 100%);
+  font-family: 'Segoe UI', 'Orbitron', Arial, sans-serif;
+  color: #F3F4F6;
+  position: relative;
+}
+
+.bounty-logo {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  z-index: 10;
+  transition: transform 0.15s;
+  filter: drop-shadow(0 0 8px #7f5cff);
+}
+.bounty-logo:hover {
+  transform: scale(1.08) rotate(-3deg);
+  filter: drop-shadow(0 0 16px #7f5cff);
+}
+.bounty-logo.top-left {
+  left: 32px;
+  right: auto;
+  top: 24px;
+}
+
+.bounty-container.table-mode {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 64px 16px 32px 16px;
+}
+
+.bounty-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  justify-content: flex-end;
+}
+.bounty-search {
+  background: #23263A;
+  border: 1.5px solid #7f5cff44;
+  color: #F3F4F6;
+  border-radius: 8px;
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 8px #7f5cff22;
+}
+.bounty-search:focus {
+  border: 1.5px solid #7f5cff;
+  box-shadow: 0 0 12px #7f5cff44;
+}
+.bounty-sort {
+  background: #23263A;
+  color: #00eaff;
+  border: 1.5px solid #7f5cff44;
+  border-radius: 8px;
+  padding: 0.45em 1em;
+  font-size: 1rem;
+  font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border 0.2s, color 0.2s, background 0.2s;
+  margin-left: 0.2em;
+}
+.bounty-sort.active, .bounty-sort:hover {
+  border: 1.5px solid #7f5cff;
+  color: #7f5cff;
+  background: #181A20;
+}
+
+.bounty-table-wrapper {
+  max-height: 520px;
+  overflow-y: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 24px 0 #7f5cff22, 0 1.5px 8px 0 #000a;
+  background: #181A20;
+}
+
+.bounty-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #181A20;
+  color: #F3F4F6;
+  font-size: 1.08rem;
+  min-width: 600px;
+}
+.bounty-table thead th {
+  position: sticky;
+  top: 0;
+  background: #23263A;
+  color: #7f5cff;
+  font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  z-index: 2;
+  padding: 0.85em 0.5em;
+  border-bottom: 2px solid #7f5cff44;
+  text-align: left;
+}
+.bounty-table tbody tr {
+  transition: background 0.15s;
+}
+.bounty-table tbody tr:hover {
+  background: #23263A;
+}
+.bounty-table td {
+  padding: 0.7em 0.5em;
+  border-bottom: 1px solid #23263A;
+  vertical-align: middle;
+}
+.bounty-table td.bounty-price {
+  color: #00eaff;
+  font-weight: 700;
+  font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+  text-shadow: 0 0 8px #00eaff33;
+}
+.bounty-link {
+  color: #00eaff;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: color 0.15s, text-shadow 0.15s;
+  text-shadow: 0 0 8px #00eaff33;
+  word-break: break-all;
+}
+.bounty-link:hover {
+  color: #7f5cff;
+  text-shadow: 0 0 12px #7f5cff99;
+  text-decoration: underline;
+}
+
+.bounty-loading, .bounty-empty {
+  text-align: center;
+  color: #00eaff;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  text-shadow: 0 0 8px #00eaff44;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: #181A20;
+}
+::-webkit-scrollbar-thumb {
+  background: #23263A;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7f5cff44;
+}
+
+/* Remove card styles for table mode */
+.bounty-list, .bounty-card, .bounty-header, .bounty-username {
+  all: unset;
 }
