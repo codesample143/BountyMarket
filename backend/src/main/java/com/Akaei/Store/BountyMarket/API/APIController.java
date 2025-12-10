@@ -39,7 +39,7 @@ public class APIController {
     public String home(){
         return "Welcome to Bounty Market API!";
     }
-
+    
     @GetMapping("/products")
     public Mono<ResponseEntity<List<Product>>> getAllProducts(){
         Flux<Product> products = service.getAllProducts();
